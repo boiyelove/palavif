@@ -1,2 +1,2 @@
 release: python manage.py migrate
-web: gunicorn palavif.wsgi --log-fil
+web: gunicorn palavif.wsgi --log-file -
