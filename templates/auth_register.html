@@ -36,7 +36,7 @@
                                         <p class="px-2"> or Fill the below form to create a new account.</p>
                                         <div class="card-content">
                                             <div class="card-body pt-0">
-                                                <form action="index.html">
+                                                <form action="{% url 'register' %}">
                                                   <div class="form-label-group">
                                                         <input type="text" id="sponsorName" class="form-control" placeholder="Sponsor Name" required>
                                                         <label for="inputName"> Sponsor Name</label>
@@ -76,7 +76,7 @@
                                                             </fieldset>
                                                         </div>
                                                     </div>
-                                                    <a href="auth-login.html" class="btn btn-outline-primary float-left btn-inline mb-50">Login</a>
+                                                    <a href="{% url 'login' %}" class="btn btn-outline-primary float-left btn-inline mb-50">Login</a>
                                                     <button type="submit" class="btn btn-primary float-right btn-inline mb-50">Register</a>
                                                 </form>
                                             </div>
