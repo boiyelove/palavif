@@ -1,0 +1,9 @@
+{% load socialaccount %}
+<div class="footer-btn d-inline">
+    <a href="{% provider_login_url 'google' method='oauth2' %}" class="btn btn-google"><span class="fa fa-google"></span></a>
+    <a href="{% provider_login_url 'facebook' method='oauth2' %}" class="btn btn-facebook"><span class="fa fa-facebook"></span></a>
+    <a href="#" class="btn btn-instagram"><span class="fa fa-instagram"></span></a>
+    <a href="{% provider_login_url 'yahoo' method='oauth2' %}" class="btn btn-yahoo"><span class="fa fa-yahoo"></span></a>
+    <a href="#" class="btn btn-apple "><span class="fa fa-apple"></span></a>
+    <a href="{% provider_login_url 'twitter' method='oauth2' %}" class="btn btn-twitter white"><span class="fa fa-twitter"></span></a>
+</div>
