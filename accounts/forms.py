@@ -1,9 +1,11 @@
 from django import forms
 from .models import Profile
 from django.conf import settings
+from allauth.account.forms import SignupForm
 User = settings.AUTH_USER_MODEL
 
-class RegCompleteForm(forms.ModelForm):
+
+class RegistrationForm(SignupForm):
 	class Meta:
 		model = Profile
 		fields = ('sponsor', 'referral', 'country', 'phone_number')
@@ -22,7 +24,7 @@ class RegCompleteForm(forms.ModelForm):
 
 
 	def clean_referral(self):
-		referral = self.cleaned_data['referral']:
+		referral = self.cleaned_data['referral']
 		if sponsor.trim() and User.objects.filter(username=referral).exists():
 			raise forms.ValidationError('Sorry, user with this referral code does not exist.')
 		return referral

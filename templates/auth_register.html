@@ -19,16 +19,20 @@
                                     <div class="card rounded-0 mb-0 p-2">
                                         <div class="card-header pt-50 pb-1">
                                             <div class="card-title">
-                                                <h4 class="mb-0">Create Account</h4>
+                                                <h4 class="mb-0">{% if request.user.is_authenticated %} Complete Registeration {% else %} Create Account {% endif %}</h4>
                                             </div>
                                         </div>
+                                        {% if not request.user.is_authenticated %}
+                                        
                                         <p class="px-2">Signin with your social media account</p>
-                                                                                 <div class="login-footer">
+                                        <div class="login-footer">
                                             <div class="footer-btn d-inline">
-                                                    {% include 'socialauth.html' %}
+                                                     {% include 'socialauth.html' %}
                                             </div>
                                         </div>
+                                      
                                         <p class="px-2"> or Fill the below form to create a new account.</p>
+                                          {% endif %}
                                         <div class="card-content">
                                             <div class="card-body pt-0">
                                                 <form action="{% url 'register' %}">
@@ -37,15 +41,15 @@
                                                         <label for="inputName"> Sponsor Name</label>
                                                     </div>
                                                     <div class="form-label-group">
-                                                        <input type="text" id="firstName" class="form-control" placeholder="First Name" required>
+                                                        <input type="text" id="firstName" class="form-control" placeholder="First Name" value="{{ request.user.first_name }}"required>
                                                         <label for="inputName">First Name</label>
                                                     </div>
                                                      <div class="form-label-group">
-                                                        <input type="text" id="lastName" class="form-control" placeholder="Last Name" required>
+                                                        <input type="text" id="lastName" class="form-control" placeholder="Last Name" required value="{{ request.user.last_name }}">
                                                         <label for="inputName">Last Name</label>
                                                     </div>
                                                     <div class="form-label-group">
-                                                        <input type="email" id="inputEmail" class="form-control" placeholder="Email" required>
+                                                        <input type="email" id="inputEmail" class="form-control" placeholder="Email" value="{{ request.user.email_address }}" required>
                                                         <label for="inputEmail">Email</label>
                                                     </div>
                                                     <div class="form-label-group">
@@ -71,7 +75,12 @@
                                                             </fieldset>
                                                         </div>
                                                     </div>
-                                                    <a href="{% url 'login' %}" class="btn btn-outline-primary float-left btn-inline mb-50">Login</a>
+                                                    {% if request.user.is_authenticated %}
+                                                    
+                                                         <a href="{% url 'account_logout' %}" class="btn btn-outline-danger float-left btn-inline mb-50">Logout</a>
+                                                    {% else %}
+                                                        <a href="{% url 'login' %}" class="btn btn-outline-primary float-left btn-inline mb-50">Login</a>
+                                                    {% endif  %}
                                                     <button type="submit" class="btn btn-primary float-right btn-inline mb-50">Register</a>
                                                 </form>
                                             </div>

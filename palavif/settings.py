@@ -172,11 +172,15 @@ MEDIA_ROOT = BASE_DIR / 'useruploads'
 
 from django.urls import reverse_lazy
 LOGIN_REDIRECT_URL = reverse_lazy('dashboard')
+LOGIN_URL = reverse_lazy('login') 
 
 import  dj_database_url
 db_from_env = dj_database_url .config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
+ACCOUNT_EMAIL_REQUIRED=True
+SOCIALACCOUNT_EMAIL_REQUIRED = True
+SOCIALACCOUNT_QUERY_EMAIL = True
 
 
 SOCIALACCOUNT_PROVIDERS = {
@@ -232,13 +236,14 @@ SOCIALACCOUNT_PROVIDERS = {
         'METHOD': 'oauth2',
         'SDK_URL': '//connect.facebook.net/{locale}/sdk.js',
         'SCOPE': ['email', 'public_profile'],
-        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        # 'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
         'INIT_PARAMS': {'cookie': True},
         'FIELDS': [
             'id',
             'first_name',
             'last_name',
             'middle_name',
+            'email',
             'name',
             'name_format',
             'picture',
