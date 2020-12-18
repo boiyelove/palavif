@@ -58,6 +58,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.twitter',
     'allauth.socialaccount.providers.yahoo',
 
+    'phonenumber_field',
+    'django_countries',
+
     'accounts',
 
 
