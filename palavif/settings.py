@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'django.contrib.flatpages',
 
     # The following apps are required:
     'allauth',
@@ -165,6 +166,9 @@ STATIC_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'useruploads'
+
+from django.urls import reverse_lazy
+LOGIN_REDIRECT_URL = reverse_lazy('dashboard')
 
 import  dj_database_url
 db_from_env = dj_database_url .config(conn_max_age=500)

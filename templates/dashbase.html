@@ -261,30 +261,23 @@
         <div class="shadow-bottom"></div>
         <div class="main-menu-content">
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-                <li class=" nav-item"><a href="index.html"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span><span class="badge badge badge-warning badge-pill float-right mr-2">2</span></a>
-                    <ul class="menu-content">
-                        <li><a href="dashboard-analytics.html"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">Analytics</span></a>
-                        </li>
-                        <li><a href="dashboard-ecommerce.html"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="eCommerce">eCommerce</span></a>
-                        </li>
-                    </ul>
-                </li>
+
                 
-                <li class=" navigation-header"><span>pages</span>
+                <li class=" nav-item"><a href="{% url 'dashboard' %}"><i class="feather icon-box"></i><span class="menu-title" data-i18n="Profile">Dashboard</span></a>
                 </li>
-                <li class=" nav-item"><a href="page-user-profile.html"><i class="feather icon-box"></i><span class="menu-title" data-i18n="Profile">Dashboard</span></a>
+                <li class="nav-item"><a href="{% url 'account-profile' %}"><i class="feather icon-user icon-user"></i><span class="menu-title" data-i18n="Account Settings">Profile</span></a>
                 </li>
-                <li class="nav-item"><a href="page-account-settings.html"><i class="feather icon-user icon-user"></i><span class="menu-title" data-i18n="Account Settings">Profile</span></a>
+                <li class=" nav-item"><a href="{% url 'earnings' %}"><i class="feather icon-trending-up"></i><span class="menu-title" data-i18n="Earnings">Earnings</span></a>
                 </li>
-                <li class=" nav-item"><a href="page-faq.html"><i class="feather icon-trending-up"></i><span class="menu-title" data-i18n="FAQ">Earnings</span></a>
+                <li class=" nav-item"><a href="{% url 'affliates' %}"><i class="feather icon-zap"></i><span class="menu-title" data-i18n="Affliates">Affliates</span></a>
                 </li>
-                <li class=" nav-item"><a href="page-knowledge-base.html"><i class="feather icon-zap"></i><span class="menu-title" data-i18n="Knowledge Base">Affliates</span></a>
+                <li class=" nav-item"><a href="{% url 'adverts' %}"><i class="feather icon-search"></i><span class="menu-title" data-i18n="Adverts">Adverts</span></a>
                 </li>
-                <li class=" nav-item"><a href="page-search.html"><i class="feather icon-search"></i><span class="menu-title" data-i18n="Search">Adverts</span></a>
+                <li class="nav-item"><a href="{% url 'bill-payment' %}"><i class="feather icon-settings"></i><span class="menu-title" data-i18n="Bill Payment">Bill Payment</span></a>
                 </li>
-                <li class="active nav-item"><a href="page-invoice.html"><i class="feather icon-settings"></i><span class="menu-title" data-i18n="Invoice">Settings</span></a>
+                <li class="nav-item"><a href="{% url 'account-settings' %}"><i class="feather icon-settings"></i><span class="menu-title" data-i18n="Settings">Settings</span></a>
                 </li>
-                <li class=" nav-item"><a href="#"><i class="feather icon-info"></i><span class="menu-title" data-i18n="Starter kit">FAQ</span></a>
+                <li class="nav-item"><a href="#"><i class="feather icon-info"></i><span class="menu-title" data-i18n="FAQ">FAQ</span></a>
                     <ul class="menu-content">
                         <li><a href="../../../starter-kit/ltr/vertical-menu-template-dark/sk-layout-2-columns.html"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="2 columns">2 columns</span></a>
                         </li>
