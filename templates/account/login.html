@@ -41,7 +41,7 @@
                                                 <form method="POST" action="{% url 'account_login' %}">
                                                         {% csrf_token %}
                                                     <fieldset class="form-label-group form-group position-relative has-icon-left">
-                                                        <input type="text" class="form-control" id="user-name" placeholder="Username, Email or Phone number" required>
+                                                        <input type="text" class="form-control" id="user-name" placeholder="Username, Email or Phone number" value={{form.password.value}} required>
                                                         <div class="form-control-position">
                                                             <i class="feather icon-user"></i>
                                                         </div>
@@ -49,7 +49,7 @@
                                                     </fieldset>
 
                                                     <fieldset class="form-label-group position-relative has-icon-left">
-                                                        <input type="password" class="form-control" id="user-password" placeholder="Password" required>
+                                                        <input type="password" class="form-control" id="user-password" placeholder="Password" value={{form.password.value}} required>
                                                         <div class="form-control-position">
                                                             <i class="feather icon-lock"></i>
                                                         </div>

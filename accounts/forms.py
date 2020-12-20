@@ -2,10 +2,11 @@ from django import forms
 from .models import Profile
 from django.conf import settings
 from allauth.account.forms import SignupForm
+from allauth.socialaccount.forms import SignupForm as Sfm
 User = settings.AUTH_USER_MODEL
 
 
-class RegistrationForm(SignupForm):
+class RegistrationForm:
 	class Meta:
 		model = Profile
 		fields = ('sponsor', 'referral', 'country', 'phone_number')
@@ -28,3 +29,15 @@ class RegistrationForm(SignupForm):
 		if sponsor.trim() and User.objects.filter(username=referral).exists():
 			raise forms.ValidationError('Sorry, user with this referral code does not exist.')
 		return referral
+
+	def save(self, request):
+		user = super(SocialSignupForm, self).save(request)
+		#other process
+		return user
+
+class SignupForm(RegisterationForm, Sfm):
+	pass
+
+class SocialSignupForm(RegisterationForm, Sfm):
+	pass
+
