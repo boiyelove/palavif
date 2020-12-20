@@ -37,7 +37,7 @@
                                           {% endif %}
                                         <div class="card-content">
                                             <div class="card-body pt-0">
-                                                <form id="signup_form" method="post" action="{% url 'account_signup' %}">
+                                                <form id="signup_form" method="post" action="{{ request.path }}">
                                                       {% csrf_token %}
                                                   <div class="form-label-group">
                                                         <input type="text" id="sponsorName" class="form-control" placeholder="Sponsor Name" value="{{ form.sponsor_name.value|lower }}" required>
