@@ -38,7 +38,7 @@
                                         <div class="card-content">
                                             <div class="card-body pt-0">
                                                 <form id="signup_form" method="post" action="{% url 'account_signup' %}">
-                                                      {% csrf_token %}
+                                                	  {% csrf_token %}
                                                   <div class="form-label-group">
                                                         <input type="text" id="sponsorName" class="form-control" placeholder="Sponsor Name" required>
                                                         <label for="inputName"> Sponsor Name</label>
@@ -80,8 +80,8 @@
                                                     </div>
                                                       {% if redirect_field_value %}
                                                       <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                                                     {% endif %}
-                                                    
+ 													 {% endif %}
+  													
                                                     {% if request.user.is_authenticated %}
                                                     
                                                          <a href="{% url 'account_logout' %}" class="btn btn-outline-danger float-left btn-inline mb-50">Logout</a>

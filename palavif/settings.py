@@ -25,7 +25,7 @@ SECRET_KEY = 'rbz-))h&-xen&gc(--2%uwf5@95hp(8d*jfs1i$8@6zt^#-&(o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'palavif.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'palavif.herokuapp.com', '.ngrok.io']
 
 
 # Application definition
