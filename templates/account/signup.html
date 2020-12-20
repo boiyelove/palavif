@@ -38,21 +38,21 @@
                                         <div class="card-content">
                                             <div class="card-body pt-0">
                                                 <form id="signup_form" method="post" action="{% url 'account_signup' %}">
-                                                	  {% csrf_token %}
+                                                      {% csrf_token %}
                                                   <div class="form-label-group">
-                                                        <input type="text" id="sponsorName" class="form-control" placeholder="Sponsor Name" required>
+                                                        <input type="text" id="sponsorName" class="form-control" placeholder="Sponsor Name" value="{{ form.sponsor_name.value|lower }}" required>
                                                         <label for="inputName"> Sponsor Name</label>
                                                     </div>
                                                     <div class="form-label-group">
-                                                        <input type="text" id="firstName" class="form-control" placeholder="First Name" value="{{ request.user.first_name }}"required>
+                                                        <input type="text" id="firstName" class="form-control" placeholder="First Name" value="{{ form.first_name.value|lower }}"required>
                                                         <label for="inputName">First Name</label>
                                                     </div>
                                                      <div class="form-label-group">
-                                                        <input type="text" id="lastName" class="form-control" placeholder="Last Name" required value="{{ request.user.last_name }}">
+                                                        <input type="text" id="lastName" class="form-control" placeholder="Last Name" required value="{{ form.last_name.value|lower }}">
                                                         <label for="inputName">Last Name</label>
                                                     </div>
                                                     <div class="form-label-group">
-                                                        <input type="email" id="inputEmail" class="form-control" placeholder="Email" value="{{ request.user.email_address }}" required>
+                                                        <input type="email" id="inputEmail" class="form-control" placeholder="Email" value="{{ form.email_address.value|lower }}" required>
                                                         <label for="inputEmail">Email</label>
                                                     </div>
                                                     <div class="form-label-group">
@@ -80,13 +80,13 @@
                                                     </div>
                                                       {% if redirect_field_value %}
                                                       <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
- 													 {% endif %}
-  													
+                                                     {% endif %}
+                                                    
                                                     {% if request.user.is_authenticated %}
                                                     
                                                          <a href="{% url 'account_logout' %}" class="btn btn-outline-danger float-left btn-inline mb-50">Logout</a>
                                                     {% else %}
-                                                        <a href="{% url 'login' %}" class="btn btn-outline-primary float-left btn-inline mb-50">Login</a>
+                                                        <a href="{% url 'account_login' %}" class="btn btn-outline-primary float-left btn-inline mb-50">Login</a>
                                                     {% endif  %}
                                                     <button type="submit" class="btn btn-primary float-right btn-inline mb-50">Register</a>
                                                 </form>
