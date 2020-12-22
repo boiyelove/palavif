@@ -73,6 +73,8 @@ class SocialSignupForm(RegistrationForm, Sfm):
 		model = Profile
 		fields = ('sponsor', 'referral', 'country', 'phone_number')
 
+		
+
 class LoginForm(LoginForm):
 
 

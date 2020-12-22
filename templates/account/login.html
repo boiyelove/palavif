@@ -44,22 +44,41 @@
                                             <div class="divider">
                                                 <div class="divider-text">OR</div>
                                             </div>
+                                            {{ form.as_p }}
+                                            {{ form.errors }}
                                             <div class="card-body pt-1">
                                                 <form method="POST" action="{% url 'account_login' %}">
                                                         {% csrf_token %}
                                                     <fieldset class="form-label-group form-group position-relative has-icon-left">
-                                                        <input type="text" class="form-control" id="user-name" placeholder="Username, Email or Phone number" value={{form.password.value}} required>
+                                                        <input type="text" class="form-control {% if form.login.errors %} is-invalid {% endif %}" id="login" name="login" placeholder="Username, Email or Phone number" {% if form.login.value %} value="{{ form.login.value|lower }}" {% endif %} required>
                                                         <div class="form-control-position">
                                                             <i class="feather icon-user"></i>
                                                         </div>
-                                                        <label for="user-name">Username</label>
+                                                 
+                                                        {% if form.login.errors %}
+                                                            {% for error in form.login.errors %}
+                                                                <div class="invalid-feedback">
+                                                                    {{ error }}
+                                                                </div>
+                                                            {% endfor %}
+                                                        {% endif %}
+
+                                                        <label for="username">Username</label>
                                                     </fieldset>
 
                                                     <fieldset class="form-label-group position-relative has-icon-left">
-                                                        <input type="password" class="form-control" id="user-password" placeholder="Password" value={{form.password.value}} required>
+                                                        <input type="password" class="form-control {% if form.password.errors %} is-invalid {% endif %}" id="password" name="password"  placeholder="Password" required>
                                                         <div class="form-control-position">
                                                             <i class="feather icon-lock"></i>
                                                         </div>
+
+                                                        {% if form.password.errors %}
+                                                            {% for error in form.password.errors %}
+                                                                <div class="invalid-feedback">
+                                                                    {{ error }}
+                                                                </div>
+                                                            {% endfor %}
+                                                        {% endif %}
                                                         <label for="user-password">Password</label>
                                                     </fieldset>
                                                       {% if redirect_field_value %}
