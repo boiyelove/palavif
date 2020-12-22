@@ -44,8 +44,7 @@
                                             <div class="divider">
                                                 <div class="divider-text">OR</div>
                                             </div>
-                                            {{ form.as_p }}
-                                            {{ form.errors }}
+
                                             <div class="card-body pt-1">
                                                 <form method="POST" action="{% url 'account_login' %}">
                                                         {% csrf_token %}

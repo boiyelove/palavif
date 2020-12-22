@@ -47,3 +47,6 @@ class  Adverts(TemplateView):
 
 class  BillPayment(TemplateView):
 	template_name = 'bill_payment.html'
+
+class Geneology(TemplateView):
+	template_name = 'geneology.html'
