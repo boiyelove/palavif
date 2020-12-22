@@ -1,7 +1,7 @@
 from django import forms
 from .models import Profile
 from django.contrib.auth import get_user_model
-from allauth.account.forms import SignupForm
+from allauth.account.forms import SignupForm, LoginForm
 from allauth.socialaccount.forms import SignupForm as Sfm
 
 
@@ -72,5 +72,18 @@ class SocialSignupForm(RegistrationForm, Sfm):
 	class Meta:
 		model = Profile
 		fields = ('sponsor', 'referral', 'country', 'phone_number')
+
+class LoginForm(LoginForm):
+
+
+	def clean_username(self):
+		username  = self.cleaned_data.get('username')
+		if '@' in username:
+			user = User.objects.filter(username=username).exists()
+		return username
+
+
+	def login(self, *args, **kwargs):
+		return super(LoginForm, self).login(*args, **kwargs)
 
 
