@@ -27,9 +27,6 @@ class CompleteRegistration(FormView):
 class AccountSettings(TemplateView):
 	template_name = 'account_settings.html'
 
-class UserProfile(TemplateView):
-	template_name = 'profile.html'
-
 class Login(TemplateView):
 	template_name = 'account/login.html'
 
