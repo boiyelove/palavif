@@ -2,3 +2,5 @@
 *.py[co]
 core/
 .env
+earnings/
+adverts/

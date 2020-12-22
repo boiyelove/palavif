@@ -27,6 +27,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'palavif.herokuapp.com', '.ngrok.io']
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# EMAIL_HOST = 
+# EMAIL_HOST_USER = 
+# EMAIL_PORT = 
+# EMAIl_HOST_PASSWORD = 
+
 
 # Application definition
 
@@ -58,6 +65,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.twitter',
     'allauth.socialaccount.providers.yahoo',
 
+    'model_utils',
     'phonenumber_field',
     'django_countries',
 
@@ -77,6 +85,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'accounts.middleware.referral_middlware',
     
 ]
 
@@ -254,4 +263,32 @@ SOCIALACCOUNT_PROVIDERS = {
         'VERIFIED_EMAIL': False,
         'VERSION': 'v7.0',
     }
+}
+
+
+
+from django.contrib.messages import constants as messages
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'alert-info',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
+}
+
+
+ACCOUNT_FORMS = {
+    'login': 'accounts.forms.LoginForm',
+    'signup': 'accounts.forms.SignupForm',
+    # 'add_email': 'allauth.account.forms.AddEmailForm',
+    # 'change_password': 'allauth.account.forms.ChangePasswordForm',
+    # 'set_password': 'allauth.account.forms.SetPasswordForm',
+    # 'reset_password': 'allauth.account.forms.ResetPasswordForm',
+    # 'reset_password_from_key': 'allauth.account.forms.ResetPasswordKeyForm',
+    # 'disconnect': 'allauth.socialaccount.forms.DisconnectForm',
+}
+
+SOCIALACCOUNT_FORMS = {
+    'signup': 'allauth.socialaccount.forms.SignupForm',
 }

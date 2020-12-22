@@ -31,10 +31,10 @@ class UserProfile(TemplateView):
 	template_name = 'profile.html'
 
 class Login(TemplateView):
-	template_name = 'auth_login.html'
+	template_name = 'account/login.html'
 
 class Register(TemplateView):
-	template_name = 'auth_register.html'
+	template_name = 'socialaccount/signup.html'
 
 class Dashboard(LoginRequiredMixin, AccountChecks, TemplateView):
 	template_name = 'dashboard.html'

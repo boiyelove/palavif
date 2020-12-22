@@ -20,8 +20,9 @@
                                 <div class="col-lg-12 col-12 p-0">
                                     <div class="card rounded-0 mb-0 p-2">
                                         <div class="card-header pt-50 pb-1">
+
                                             <div class="card-title">
-                                                <h4 class="mb-0">{% if request.user.is_authenticated %} Complete Registeration {% else %} Create Account {% endif %}</h4>
+                                                <h4 class="mb-0">{% if request.user.is_authenticated %} Complete Registration {% else %} Create Account {% endif %}</h4>
                                             </div>
                                         </div>
                                         {% if not request.user.is_authenticated %}
@@ -40,34 +41,89 @@
                                                 <form id="signup_form" method="post" action="{{ request.path }}">
                                                       {% csrf_token %}
                                                   <div class="form-label-group">
-                                                        <input type="text" id="sponsorName" class="form-control" placeholder="Sponsor Name" value="{{ form.sponsor_name.value|lower }}" required>
-                                                        <label for="inputName"> Sponsor Name</label>
+                                                        <input type="text" id="sponsor"  name="sponsor"class="form-control {% if form.sponsor.errors %} is-invalid {% endif %}" placeholder="Sponsor Username" {% if form.sponsor.value %} value="{{ form.sponsor.value|lower }}" {% endif %} required>
+                                                        {% if form.sponsor.errors %}
+                                                            {% for error in form.sponsor.errors %}
+                                                                <div class="invalid-feedback">
+                                                                    {{ error }}
+                                                                </div>
+                                                            {% endfor %}
+                                                        {% endif %}
+                                                        <label for="sponsor"> Sponsor Name</label>
                                                     </div>
                                                     <div class="form-label-group">
-                                                        <input type="text" id="firstName" class="form-control" placeholder="First Name" value="{{ form.first_name.value|lower }}"required>
-                                                        <label for="inputName">First Name</label>
+                                                        <input type="text" id="first_name" name="first_name" class="form-control {% if form.first_name.errors %} is-invalid {% endif %}" placeholder="First Name" {% if form.first_name.value %} value="{{ form.first_name.value|title}}" {% endif %} required>
+                                                          {% if form.first_name.errors %}
+                                                            {% for error in form.first_name.errors %}
+                                                                <div class="invalid-feedback">
+                                                                    {{ error }}
+                                                                </div>
+                                                            {% endfor %}
+                                                        {% endif %}
+                                                        <label for="first_name">First Name</label>
                                                     </div>
                                                      <div class="form-label-group">
-                                                        <input type="text" id="lastName" class="form-control" placeholder="Last Name" required value="{{ form.last_name.value|lower }}">
-                                                        <label for="inputName">Last Name</label>
+                                                        <input type="text" id="last_name" name="last_name" class="form-control {% if form.last_name.errors %} is-invalid {% endif %}" placeholder="Last Name" required  {% if form.last_name.value %} value="{{ form.last_name.value|title }}" {% endif %}>
+                                                          {% if form.last_name.errors %}
+                                                             {% for error in form.last_name.errors %}
+                                                                <div class="invalid-feedback">
+                                                                    {{ error }}
+                                                                </div>
+                                                             {% endfor %}
+                                                          {% endif %}                                                        
+                                                        <label for="last_name">Last Name</label>
                                                     </div>
                                                     <div class="form-label-group">
-                                                        <input type="email" id="inputEmail" class="form-control" placeholder="Email" value="{{ form.email.value|lower }}" required>
-                                                        <label for="inputEmail">Email</label>
+                                                        <input type="username" id="username" name="username" class="form-control {% if form.username.errors %} is-invalid {% endif %}" placeholder="Username" {% if form.username.value %} value="{{ form.username.value|lower  }}" {% endif %} required>
+
+                                                           {% if form.username.errors %}
+                                                             {% for error in form.username.errors %}
+                                                                <div class="invalid-feedback">
+                                                                    {{ error }}
+                                                                </div>
+                                                             {% endfor %}
+                                                          {% endif %}                                                          
+                                                        <label for="username">Username</label>
                                                     </div>
                                                     <div class="form-label-group">
-                                                        <input type="password" id="idnputPassword" class="form-control" placeholder="Password" required>
-                                                        <label for="inputPassword">Password</label>
+                                                        <input type="email" id="email" name="email" class="form-control {% if form.email.errors %} is-invalid {% endif %}" placeholder="Email" {% if form.email.value %} value="{{ form.email.value|lower  }}" {% endif %} required>
+
+                                                           {% if form.email.errors %}
+                                                             {% for error in form.email.errors %}
+                                                                <div class="invalid-feedback">
+                                                                    {{ error }}
+                                                                </div>
+                                                             {% endfor %}
+                                                          {% endif %}                                                          
+                                                        <label for="email">Email</label>
                                                     </div>
                                                     <div class="form-label-group">
-                                                        <input type="password" id="inputConfPassword" class="form-control" placeholder="Confirm Password" required>
-                                                        <label for="inputConfPassword">Confirm Password</label>
+                                                        <input type="password" id="password1" name="password1" class="form-control {% if form.password1.errors %} is-invalid {% endif %}" placeholder="Password" required>
+                                                        {% if form.password1.errors %}
+                                                        {% for error in form.password1.errors %}
+                                                                <div class="invalid-feedback">
+                                                                    {{ error }}
+                                                                </div>
+                                                             {% endfor %}
+                                                          {% endif %}   
+                                                        <label for="password">Password</label>
+                                                    </div>
+                                                    <div class="form-label-group">
+                                                        <input type="password" id="password2" name="password2" class="form-control {% if form.password2.errors %} is-invalid {% endif %}" placeholder="Confirm Password" required>
+                                                        {% if form.password2.errors %}
+                                                        {% for error in form.password2.errors %}
+                                                                <div class="invalid-feedback">
+                                                                    {{ error }}
+                                                                </div>
+                                                             {% endfor %}
+                                                          {% endif %}   
+                                                        <label for="password2">Confirm Password</label>
                                                     </div>
                                                     <div class="form-group row">
                                                         <div class="col-12">
                                                             <fieldset class="checkbox">
                                                                 <div class="vs-checkbox-con vs-checkbox-primary">
-                                                                    <input type="checkbox" checked>
+                                                                    <input type="checkbox" name="terms" checked>
                                                                     <span class="vs-checkbox">
                                                                         <span class="vs-checkbox--check">
                                                                             <i class="vs-icon feather icon-check"></i>
