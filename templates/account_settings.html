@@ -42,10 +42,28 @@
                         <!-- left menu section -->
                         <div class="col-md-3 mb-2 mb-md-0">
                             <ul class="nav nav-pills flex-column mt-md-0 mt-1">
-                                <li class="nav-item">
-                                    <a class="nav-link d-flex py-75 active" id="account-pill-general" data-toggle="pill" href="#account-vertical-general" aria-expanded="true">
+<!--                                 <li class="nav-item">
+                                    <a class="nav-link d-flex py-7 " id="account-pill-general" data-toggle="pill" href="#general-vertical-general" aria-expanded="false">
                                         <i class="feather icon-globe mr-50 font-medium-3"></i>
                                         General
+                                    </a>
+                                </li> -->
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex py-75" id="account-pill-info" data-toggle="pill" href="#account-vertical-info" aria-expanded="true">
+                                        <i class="feather icon-info mr-50 font-medium-3"></i>
+                                        Profile Info
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex py-75" id="account-pill-account" data-toggle="pill" href="#account-vertical-account" aria-expanded="false">
+                                        <i class="feather icon-user mr-50 font-medium-3"></i>
+                                        Account
+                                    </a>
+                                </li>
+                               <li class="nav-item">
+                                    <a class="nav-link d-flex py-75" id="account-pill-bank" data-toggle="pill" href="#account-vertical-bank" aria-expanded="false">
+                                        <i class="feather icon-user mr-50 font-medium-3"></i>
+                                        Bank Details
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -54,12 +72,7 @@
                                         Change Password
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link d-flex py-75" id="account-pill-info" data-toggle="pill" href="#account-vertical-info" aria-expanded="false">
-                                        <i class="feather icon-info mr-50 font-medium-3"></i>
-                                        Info
-                                    </a>
-                                </li>
+
                                 <li class="nav-item">
                                     <a class="nav-link d-flex py-75" id="account-pill-social" data-toggle="pill" href="#account-vertical-social" aria-expanded="false">
                                         <i class="feather icon-camera mr-50 font-medium-3"></i>
@@ -86,7 +99,112 @@
                                 <div class="card-content">
                                     <div class="card-body">
                                         <div class="tab-content">
-                                            <div role="tabpanel" class="tab-pane active" id="account-vertical-general" aria-labelledby="account-pill-general" aria-expanded="true">
+
+                                            <div class="tab-pane fade" id="account-vertical-info" role="tabpanel" aria-labelledby="account-pill-info" aria-expanded="true">
+                                                <form novalidate>
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <div class="form-group">
+                                                                <div class="controls">
+                                                                    <label for="account-birth-date">Birth date</label>
+                                                                    <input type="text" class="form-control birthdate-picker" required placeholder="Birth date" id="account-birth-date" data-validation-required-message="This birthdate field is required">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                         <div class="col-6">
+                                                            <div class="form-group">
+                                                                <label for="accountSelect">Gender</label>
+                                                                <select class="form-control" id="accountSelect">
+                                                                    <option>USA</option>
+                                                                    <option>India</option>
+                                                                    <option>Canada</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="form-group">
+                                                                <label for="accountSelect">Country</label>
+                                                                <select class="form-control" id="accountSelect">
+                                                                    <option>USA</option>
+                                                                    <option>India</option>
+                                                                    <option>Canada</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <div class="form-group">
+                                                                <div class="controls">
+                                                                    <label for="account-phone">Phone</label>
+                                                                    <input type="text" class="form-control" id="account-phone" required placeholder="Phone number" value="(+656) 254 2568" data-validation-required-message="This phone number field is required">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <div class="form-group">
+                                                                <label for="state_of_orgin">State of Origin+</label>
+                                                                <input type="text" id="state_of_orgin" class="form-control">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <div class="form-group">
+                                                                <label for="marritalStatus">Marrital Status</label>
+                                                                <select class="form-control" id="marritalStatus">
+                                                                    <option>USA</option>
+                                                                    <option>India</option>
+                                                                    <option>Canada</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>  
+
+                                                        <div class="col-12" style="margin: 3% 0% 1% 0%;">
+                                                            <h5 class="text-center">Next of Kin Info</h5>
+                                                        </div>
+
+                                                        <div class="col-4">
+                                                            <div class="form-group">
+                                                                <label for="first_name">First name+</label>
+                                                                <input type="text" id="first_name" class="form-control">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-4">
+                                                            <div class="form-group">
+                                                                <label for="middle_name">Middle name</label>
+                                                                <input type="text" id="middle_name" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <div class="form-group">
+                                                                <label for="last_name">Last name</label>
+                                                                <input type="text" id="last_name" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <div class="form-group">
+                                                                <label for="last_name">Relationship</label>
+                                                                <input type="text" id="relationship" class="form-control">
+                                                            </div>
+                                                        </div>       
+                                                        <div class="col-6">
+                                                            <div class="form-group">
+                                                                <div class="controls">
+                                                                    <label for="account-phone">Phone</label>
+                                                                    <input type="text" class="form-control" id="account-phone" required placeholder="Phone number" value="(+656) 254 2568" data-validation-required-message="This phone number field is required">
+                                                                </div>
+                                                            </div>
+                                                        </div>                                                                                                                                                            
+                                                        <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                            <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Save
+                                                                changes</button>
+                                                            <button type="reset" class="btn btn-outline-warning">Cancel</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                            <div role="tabpanel" class="tab-pane active" id="account-vertical-account" aria-labelledby="account-pill-account" aria-expanded="false">
                                                 <div class="media">
                                                     <a href="javascript: void(0);">
                                                         <img src="app-assets/images/portrait/small/avatar-s-12.jpg" class="rounded mr-75" alt="profile image" height="64" width="64">
@@ -159,6 +277,41 @@
                                                     </div>
                                                 </form>
                                             </div>
+                                       <div class="tab-pane fade " id="account-vertical-bank" role="tabpanel" aria-labelledby="account-pill-bank" aria-expanded="false">
+                                                <form novalidate>
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <div class="controls">
+                                                                    <label for="account-bank-name">Bank Name</label>
+                                                                    <input type="text" class="form-control" id="account-old-password" required data-validation-required-message="Enter a valid account number" minlength="10">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <div class="controls">
+                                                                    <label for="account-new-password">Account Name</label>
+                                                                    <input type="text" name="password" id="account-new-password" class="form-control" placeholder="New Password" required data-validation-required-message="The password field is required" minlength="6">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <div class="controls">
+                                                                    <label for="account-retype-new-password">Account Number</label>
+                                                                    <input type="text" name="con-password" class="form-control" required id="account-retype-new-password" data-validation-match-match="password" placeholder="New Password" data-validation-required-message="The Confirm password field is required" minlength="6">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                            <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Save
+                                                                changes</button>
+                                                            <button type="reset" class="btn btn-outline-warning">Cancel</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
                                             <div class="tab-pane fade " id="account-vertical-password" role="tabpanel" aria-labelledby="account-pill-password" aria-expanded="false">
                                                 <form novalidate>
                                                     <div class="row">
@@ -195,77 +348,7 @@
                                                     </div>
                                                 </form>
                                             </div>
-                                            <div class="tab-pane fade" id="account-vertical-info" role="tabpanel" aria-labelledby="account-pill-info" aria-expanded="false">
-                                                <form novalidate>
-                                                    <div class="row">
-                                                        <div class="col-12">
-                                                            <div class="form-group">
-                                                                <label for="accountTextarea">Bio</label>
-                                                                <textarea class="form-control" id="accountTextarea" rows="3" placeholder="Your Bio data here..."></textarea>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <div class="form-group">
-                                                                <div class="controls">
-                                                                    <label for="account-birth-date">Birth date</label>
-                                                                    <input type="text" class="form-control birthdate-picker" required placeholder="Birth date" id="account-birth-date" data-validation-required-message="This birthdate field is required">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                         <div class="col-6">
-                                                            <div class="form-group">
-                                                                <label for="accountSelect">Gender</label>
-                                                                <select class="form-control" id="accountSelect">
-                                                                    <option>USA</option>
-                                                                    <option>India</option>
-                                                                    <option>Canada</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
 
-                                                        <div class="col-6">
-                                                            <div class="form-group">
-                                                                <label for="accountSelect">Country</label>
-                                                                <select class="form-control" id="accountSelect">
-                                                                    <option>USA</option>
-                                                                    <option>India</option>
-                                                                    <option>Canada</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <div class="form-group">
-                                                                <div class="controls">
-                                                                    <label for="account-phone">Phone</label>
-                                                                    <input type="text" class="form-control" id="account-phone" required placeholder="Phone number" value="(+656) 254 2568" data-validation-required-message="This phone number field is required">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12">
-                                                            <div class="form-group">
-                                                                <label for="languageselect2">Languages</label>
-                                                                <select class="form-control" id="languageselect2" multiple="multiple">
-                                                                    <option value="English" selected>English</option>
-                                                                    <option value="Spanish">Spanish</option>
-                                                                    <option value="French">French</option>
-                                                                    <option value="Russian">Russian</option>
-                                                                    <option value="German">German</option>
-                                                                    <option value="Arabic" selected>Arabic</option>
-                                                                    <option value="Sanskrit">Sanskrit</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-
-
-
-                                                        <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                            <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Save
-                                                                changes</button>
-                                                            <button type="reset" class="btn btn-outline-warning">Cancel</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
                                             <div class="tab-pane fade " id="account-vertical-social" role="tabpanel" aria-labelledby="account-pill-social" aria-expanded="false">
                                                 <form>
                                                     <div class="row">
