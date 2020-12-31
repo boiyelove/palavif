@@ -109,23 +109,33 @@
                                                             <div class="form-group">
                                                                 <div class="controls">
                                                                     <label for="account-username">Username</label>
-                                                                    <input type="text" class="form-control" id="account-username" placeholder="Username" value="hermione007" required data-validation-required-message="This username field is required">
+                                                                    <input type="text" class="form-control" id="account-username" placeholder="Username" value="{{ request.user.username }}" disabled data-validation-required-message="This username field is required">
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-12">
+                                                        <div class="col-6">
                                                             <div class="form-group">
                                                                 <div class="controls">
-                                                                    <label for="account-name">Name</label>
-                                                                    <input type="text" class="form-control" id="account-name" placeholder="Name" value="Hermione Granger" required data-validation-required-message="This name field is required">
+                                                                    <label for="account-name">Firstname</label>
+                                                                    <input type="text" class="form-control" id="account-name" placeholder="Name" value="{{request.user.profile.first_name}}" required data-validation-required-message="This name field is required">
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <div class="col-6">
+                                                            <div class="form-group">
+                                                                <div class="controls">
+                                                                    <label for="account-name">Lastname</label>
+                                                                    <input type="text" class="form-control" id="account-name" placeholder="Name" value=" {{request.user.profile.last_name}}" required data-validation-required-message="This name field is required">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+
                                                         <div class="col-12">
                                                             <div class="form-group">
                                                                 <div class="controls">
                                                                     <label for="account-e-mail">E-mail</label>
-                                                                    <input type="email" class="form-control" id="account-e-mail" placeholder="Email" value="granger007@hogward.com" required data-validation-required-message="This email field is required">
+                                                                    <input type="email" class="form-control" id="account-e-mail" placeholder="Email" value="{{ request.user.email }}" required data-validation-required-message="This email field is required">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -140,12 +150,7 @@
                                                                 <a href="javascript: void(0);">Resend confirmation</a>
                                                             </div>
                                                         </div>
-                                                        <div class="col-12">
-                                                            <div class="form-group">
-                                                                <label for="account-company">Company</label>
-                                                                <input type="text" class="form-control" id="account-company" placeholder="Company name">
-                                                            </div>
-                                                        </div>
+
                                                         <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
                                                             <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Save
                                                                 changes</button>
@@ -199,7 +204,7 @@
                                                                 <textarea class="form-control" id="accountTextarea" rows="3" placeholder="Your Bio data here..."></textarea>
                                                             </div>
                                                         </div>
-                                                        <div class="col-12">
+                                                        <div class="col-6">
                                                             <div class="form-group">
                                                                 <div class="controls">
                                                                     <label for="account-birth-date">Birth date</label>
@@ -207,7 +212,18 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-12">
+                                                         <div class="col-6">
+                                                            <div class="form-group">
+                                                                <label for="accountSelect">Gender</label>
+                                                                <select class="form-control" id="accountSelect">
+                                                                    <option>USA</option>
+                                                                    <option>India</option>
+                                                                    <option>Canada</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-6">
                                                             <div class="form-group">
                                                                 <label for="accountSelect">Country</label>
                                                                 <select class="form-control" id="accountSelect">
@@ -215,6 +231,14 @@
                                                                     <option>India</option>
                                                                     <option>Canada</option>
                                                                 </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <div class="form-group">
+                                                                <div class="controls">
+                                                                    <label for="account-phone">Phone</label>
+                                                                    <input type="text" class="form-control" id="account-phone" required placeholder="Phone number" value="(+656) 254 2568" data-validation-required-message="This phone number field is required">
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
@@ -231,49 +255,9 @@
                                                                 </select>
                                                             </div>
                                                         </div>
-                                                        <div class="col-12">
-                                                            <div class="form-group">
-                                                                <div class="controls">
-                                                                    <label for="account-phone">Phone</label>
-                                                                    <input type="text" class="form-control" id="account-phone" required placeholder="Phone number" value="(+656) 254 2568" data-validation-required-message="This phone number field is required">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12">
-                                                            <div class="form-group">
-                                                                <label for="account-website">Website</label>
-                                                                <input type="text" class="form-control" id="account-website" placeholder="Website address">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12">
-                                                            <div class="form-group">
-                                                                <label for="musicselect2">Favourite Music</label>
-                                                                <select class="form-control" id="musicselect2" multiple="multiple">
-                                                                    <option value="Rock">Rock</option>
-                                                                    <option value="Jazz" selected>Jazz</option>
-                                                                    <option value="Disco">Disco</option>
-                                                                    <option value="Pop">Pop</option>
-                                                                    <option value="Techno">Techno</option>
-                                                                    <option value="Folk" selected>Folk</option>
-                                                                    <option value="Hip hop">Hip hop</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12">
-                                                            <div class="form-group">
-                                                                <label for="moviesselect2">Favourite movies</label>
-                                                                <select class="form-control" id="moviesselect2" multiple="multiple">
-                                                                    <option value="The Dark Knight" selected>The Dark Knight
-                                                                    </option>
-                                                                    <option value="Harry Potter" selected>Harry Potter</option>
-                                                                    <option value="Airplane!">Airplane!</option>
-                                                                    <option value="Perl Harbour">Perl Harbour</option>
-                                                                    <option value="Spider Man">Spider Man</option>
-                                                                    <option value="Iron Man" selected>Iron Man</option>
-                                                                    <option value="Avatar">Avatar</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
+
+
+
                                                         <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
                                                             <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Save
                                                                 changes</button>
